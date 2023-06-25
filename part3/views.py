@@ -25,7 +25,7 @@ def computer_list(request):
     computers = Computer.objects.all()
     return render(request, 'part3/computer_list.html', {'computers': computers})
 
-
+@csrf_exempt
 def swap_component(request, computer_id):
     computer = Computer.objects.get(pk=computer_id)
     categories = Component.objects.values_list('category', flat=True).distinct()

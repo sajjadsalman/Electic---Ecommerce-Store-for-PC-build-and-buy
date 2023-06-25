@@ -15,7 +15,7 @@
     <h2 class="mt-5">Total Price: ${{ computer.total_price }}</h2>
 
     <h2 class="mt-5">Swap Components:</h2>
-    <form action="{% url 'swap_component' computer.id %}" method="POST">
+    <form action="{% url 'swap_component' computer.id %}" name="csrfmiddlewaretoken" method="POST">
         {% csrf_token %}
         {% for component in computer.components.all %}
             <div class="mb-3">

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,4 +130,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['https://moral-durian-sugt-main-66tijr526a-wm.a.run.app']]

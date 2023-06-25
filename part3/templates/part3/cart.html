@@ -1,0 +1,29 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Cart</h1>
+    
+    {% if cart_items %}
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Computer</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.computer.name }}</td>
+                        <td>${{ item.computer.price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+{% endblock %}
+from your_app.models import YourModel

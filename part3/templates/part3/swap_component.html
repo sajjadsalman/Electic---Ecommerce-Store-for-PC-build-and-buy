@@ -1,0 +1,37 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Swap Components{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Swap Components</h1>
+
+    <h2 class="mt-5">Current Components:</h2>
+    <ul>
+        {% for component in computer.components.all %}
+            <li>{{ component.name }} - {{ component.category }} (${{ component.price }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="mt-5">Total Price: ${{ computer.total_price }}</h2>
+
+    <h2 class="mt-5">Swap Components:</h2>
+    <form action="{% url 'swap_component' computer.id %}" method="POST">
+        {% csrf_token %}
+        {% for component in computer.components.all %}
+            <div class="mb-3">
+                <label>{{ component.name }} - {{ component.category }} (${{ component.price }})</label>
+                <select class="form-select" name="component_{{ component.id }}">
+                    <option value="">-- Select New Component --</option>
+                    {% for new_component in components %}
+                        {% if new_component.category == component.category and new_component.id != component.id %}
+                            <option value="{{ new_component.id }}">{{ new_component.name }} - {{ new_component.category }} (${{ new_component.price }})</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Swap Components</button>
+        <a href="{% url 'order_summary' computer.id %}" class="btn btn-success">Buy</a>
+    </form>
+
+{% endblock %}

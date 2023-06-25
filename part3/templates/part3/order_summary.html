@@ -1,0 +1,19 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Order Summary{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Order Summary</h1>
+
+    <h2 class="mt-5">Selected Components:</h2>
+    <ul>
+        {% for component in computer.components.all %}
+            <li>{{ component.name }} - {{ component.category }} (${{ component.price }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="mt-5">Total Price: ${{ computer.total_price }}</h2>
+
+    <a href="{% url 'swap_component' computer.id %}" class="btn btn-primary">Back to Swap</a>
+    <a href="{% url 'order_complete' computer.id %}" class="btn btn-success">Buy</a>
+{% endblock %}

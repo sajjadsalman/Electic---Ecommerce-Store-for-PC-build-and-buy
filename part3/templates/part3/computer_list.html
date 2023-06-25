@@ -1,0 +1,49 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Computer List{% endblock %}
+
+{% block content %}
+    <style>
+        .card-body, .card {
+        background: #00a896;
+        border-radius: 1rem;
+    }
+        .image-container {
+            width: 12.5 rem; /* Set the desired width */
+            height: 12.5 rem; /* Set the desired height */
+            overflow: hidden; /* Hide any overflow */
+            border-radius: 1rem;
+        }
+
+        .image-container img {
+            width: 100%; /* Make the image fill the container horizontally */
+            height: 5 rem; /* Maintain the image's aspect ratio */
+        }
+    </style>
+    <h1 class="mt-5">Desktops</h1>
+    <br>
+    <div class="row mt-5">
+        {% for computer in computers %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="image-container">
+                        <img width="500" height="200" src="{{ computer.image_url }}" alt="{{ computer.name }}">
+                    </div>
+                    <h5 class="card-title">{{ computer.name }}</h5>
+                    <ul class="list-group">
+                        {% for component in computer.components.all %}
+                            <li class="list-group-item">{{ component.name }} - {{ component.category }} (${{ component.price }})</li>
+                        {% endfor %}
+                    </ul>
+                    <p class="card-text mt-3">Total Price: ${{ computer.total_price }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'swap_component' computer.id %}" class="btn btn-primary">Customize</a>
+                        <a href="{% url 'order_summary' computer.id %}" class="btn btn-success">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

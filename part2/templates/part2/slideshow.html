@@ -1,0 +1,203 @@
+<!-- slideshow.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slideshow</title>
+    <script src="https://kit.fontawesome.com/621b21f1c3.js" crossorigin="anonymous"></script>    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 0.625rem;
+        }
+
+        .navbar img {
+            width: 3.125rem;
+            height: 3.125rem;
+            margin-right: 0.625rem;
+        }
+
+        .navbar h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .slideshow-container {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        #slideshow-image {
+            width: 37.5rem; /* Set the desired width */
+            height: 25rem; /* Set the desired height */
+            object-fit: cover; /* Maintain aspect ratio and fill the container */
+            border: 0.5rem solid #fff;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+        }
+
+        #slideshow-info {
+            margin-top: 0.625rem;
+        }
+
+        #slideshow-description {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #slideshow-id {
+            font-size: 0.875rem;
+            color: #888;
+            margin-top: 0.3125rem;
+        }
+
+        #slideshow-controls {
+            text-align: center;
+            margin-top: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-house fa-lg"></i>
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Part 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Part 2</a>
+            </li>
+          </ul>
+        </div>
+      </nav>      
+    <div class="container">
+        <div class="slideshow-container">
+            <img id="slideshow-image" src="" alt="">
+            <div id="slideshow-info">
+                <p id="slideshow-description"></p>
+                <p id="slideshow-id"></p>
+            </div>
+        </div>
+        <div id="slideshow-controls">
+            <button id="btn-back" class="btn btn-primary">Back</button>
+            <button id="btn-stop" class="btn btn-primary">Stop</button>
+            <button id="btn-start" class="btn btn-primary">Start</button>
+            <button id="btn-random" class="btn btn-primary">Random</button>
+            <button id="btn-sequential" class="btn btn-primary">Sequential</button>
+            <button id="btn-forward" class="btn btn-primary">Forward</button>
+        </div>
+    </div>
+
+    <script>
+        const images = JSON.parse('{{ images|escapejs }}');
+        const slideshowImage = document.getElementById('slideshow-image');
+        const slideshowDescription = document.getElementById('slideshow-description');
+        const slideshowId = document.getElementById('slideshow-id');
+        const btnBack = document.getElementById('btn-back');
+        const btnStop = document.getElementById('btn-stop');
+        const btnStart = document.getElementById('btn-start');
+        const btnRandom = document.getElementById('btn-random');
+        const btnSequential = document.getElementById('btn-sequential');
+        const btnForward = document.getElementById('btn-forward');
+        let currentIndex = 0;
+        let intervalId = null;
+        let isRandomMode = false;
+
+        function displayImage(index) {
+            const image = images[index];
+            slideshowImage.src = image.fields.url;
+            slideshowDescription.textContent = image.fields.description;
+        }
+
+        function startSlideshow() {
+            intervalId = setInterval(() => {
+                if (isRandomMode) {
+                    currentIndex = Math.floor(Math.random() * images.length);
+                } else {
+                    currentIndex = (currentIndex + 1) % images.length;
+                }
+                displayImage(currentIndex);
+            }, 1500);
+        }
+
+        function stopSlideshow() {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+
+        function handleBack() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            displayImage(currentIndex);
+        }
+
+        function handleForward() {
+            currentIndex = (currentIndex + 1) % images.length;
+            displayImage(currentIndex);
+        }
+
+        function toggleMode() {
+            isRandomMode = !isRandomMode;
+            btnRandom.disabled = isRandomMode;
+            btnSequential.disabled = !isRandomMode;
+        }
+
+        btnBack.addEventListener('click', () => {
+            handleBack();
+            btnBack.classList.add('animated', 'pulse');
+            setTimeout(() => {
+                btnBack.classList.remove('animated', 'pulse');
+            }, 1000);
+        });
+
+        btnStop.addEventListener('click', () => {
+            stopSlideshow();
+            btnStop.classList.add('animated', 'pulse');
+            setTimeout(() => {
+                btnStop.classList.remove('animated', 'pulse');
+            }, 1000);
+        });
+
+        btnStart.addEventListener('click', () => {
+            startSlideshow();
+            btnStart.classList.add('animated', 'pulse');
+            setTimeout(() => {
+                btnStart.classList.remove('animated', 'pulse');
+            }, 1000);
+        });
+
+        btnRandom.addEventListener('click', () => {
+            toggleMode();
+            btnRandom.classList.add('animated', 'pulse');
+            setTimeout(() => {
+                btnRandom.classList.remove('animated', 'pulse');
+            }, 1000);
+        });
+
+        btnSequential.addEventListener('click', () => {
+            toggleMode();
+            btnSequential.classList.add('animated', 'pulse');
+            setTimeout(() => {
+                btnSequential.classList.remove('animated', 'pulse');
+            }, 1000);
+        });
+
+        btnForward.addEventListener('click', () => {
+            handleForward();
+            btnForward.classList.add('animated', 'pulse');
+            setTimeout(() => {
+                btnForward.classList.remove('animated', 'pulse');
+            }, 1000);
+        });
+
+        displayImage(currentIndex);
+    </script>
+</body>
+</html>

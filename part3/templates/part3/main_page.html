@@ -1,0 +1,41 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Component List{% endblock %}
+
+{% block content %}
+  <style>
+    /* Custom styles for the cover page */
+    .cover-container {
+      max-width: 42rem;
+      margin-top: 5rem;
+    }
+
+    .cover-heading {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+  
+
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column justify-content-center align-items-center">
+    <main role="main" class="inner cover text-center">
+      <h1 class="cover-heading">Welcome!</h1>
+      <p class="lead">This is your one stop Desktop shop.</p>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        <a class="nav-link" href="{% url 'feedback' %}">Feedback</a>
+      </nav>
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-primary">Login</a>
+      </p>
+    </main>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Components{% endblock %}
+
+{% block content %}
+<style>
+    .card-body, .card {
+        background: #00a896;
+        border-radius: 1rem;
+    }
+    .image-container {
+        width: 100%; /* Set the desired width */
+        height: 12.5rem; /* Set the desired height */
+        overflow: hidden; /* Hide any overflow */
+        border-radius: 1rem;;
+    }
+    h5 {
+        margin-top: 1rem;
+    }
+    .image-container img {
+        width: 100%; /* Make the image fill the container horizontally */
+        height: 100%; /* Maintain the image's aspect ratio */
+    }
+</style>
+<h1 class="mt-5">Components</h1>
+<br>
+{% regroup components by category as component_categories %}
+
+{% for category in component_categories %}
+    <h2>{{ category.grouper }}</h2>
+    <div class="row mt-5">
+        {% for component in category.list %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="image-container">
+                            <img width="500" height="200" src="{{ component.image_url }}" alt="{{ component.name }}">
+                        </div>
+                        <h5 class="card-title">{{ component.name }}</h5>
+                        <p class="card-text">Category: {{ component.category }}</p>
+                        <p class="card-text">Price: ${{ component.price }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No components found.</p>
+        {% endfor %}
+    </div>
+{% empty %}
+    <p>No categories found.</p>
+{% endfor %}
+{% endblock %}

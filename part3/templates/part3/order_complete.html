@@ -1,0 +1,18 @@
+{% extends 'part3/base.html' %}
+
+{% block title %}Order Summary{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Congratulations! Here are your order details:</h1>
+
+    <h2 class="mt-5">Selected Components:</h2>
+    <ul>
+        {% for component in computer.components.all %}
+            <li>{{ component.name }} - {{ component.category }} (${{ component.price }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="mt-5">Total Price: ${{ computer.total_price }}</h2>
+    <h2 class="mt-5">Payment Method: N/A</h2>
+
+{% endblock %}

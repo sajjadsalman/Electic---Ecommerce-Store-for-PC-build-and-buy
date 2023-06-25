@@ -34,7 +34,7 @@
     <div class="text-center">
         <h1 class="text-danger">Cookie Tracker</h1>
         <p class="lead">Number of visits: {{ visits }}</p>
-        <p>IP Address: {{ request.META.HTTP_X_FORWARDED_FOR|default:request.META.REMOTE_ADDR }}</p>
+        <p>IPv4/IPv6 Address: {{ request.META.HTTP_X_FORWARDED_FOR|default:request.META.REMOTE_ADDR }}</p>
         <p>Time Zone: <span id="timeZone"></span></p>
     </div>
 </div>

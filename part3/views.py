@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from part3.models import Component, Computer
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
 def main_page(request):
     return render(request, 'part3/main_page.html')

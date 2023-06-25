@@ -11,10 +11,10 @@ def about_page(request):
 
 def contact_page(request):
     return render(request, 'part3/contact.html')
-
+@csrf_exempt
 def feedback(request):
     return render(request, 'part3/feedback.html')
-
+@csrf_exempt
 def feedback_thankyou(request):
     return render(request, 'part3/feedback_thankyou.html')
 

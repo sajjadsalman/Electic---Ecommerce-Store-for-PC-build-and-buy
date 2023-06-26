@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentation Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/621b21f1c3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container" style="margin-left: 1rem;">
+            <a class="navbar-brand" href="{% url 'main_page' %}"><i class="fa-brands fa-github-alt"></i> MyHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part1/cookie">Part 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part2/slideshow">Part 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part3/">Part 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part3/">Part 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+  <div class="container mt-4">
+    <h1 class="text-center">Muhammad Sajjad Salman</h1>
+    <p class="text-center">COMP 466 - Advanced Technology for Web-Based Systems</p>
+    <p class="text-center">Assignment 3</p>
+    <p class="text-center">Start date: 25 April 2023</p>
+    <p class="text-center">Start date: 15 June 2023</p>
+    <p class="text-center">Estimated hours: 400 hours</p>
+    <hr>
+    <h2>Projects</h2>
+    <p>The projects are hosted on the web and you can access the links to the projects are provided below:</p>
+    <ol>
+      <li><a href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part1/cookie">Cookie Tracker (Part 1)</a></li>
+      <li><a href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part2/slideshow">Slideshow (Part 2)</a></li>
+      <li><a href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part3/">Electic (Part 3)</a></li>
+      <li><a href="https://moral-durian-sugt-main-66tijr526a-wm.a.run.app/part3/">Electic (Part 4)</a></li>
+    </ol>
+    <h2 class="text-center">Cookie Tracker (Part 1)</h2>
+    <h3>Description</h3>
+    <p>Following is my description of the assignment project and requirements:</p>
+    <ul>
+        <li>The task at hand is to develop a Python and Django web application that utilizes a persistent cookie to track the number of times a client's computer visits a specific page. Alongside the visit count, the application should also display the client computer's IP address and determine the time zone in which the client computer is located. By implementing these features, the application will effectively track visits, provide IP address information, and offer insights into the time zone of the client's computer.</li>
+    </ul>
+    <hr>
+    <h3>Analysis and Design</h3>
+    <p>Analysis:</p>
+    <ul>
+        <li>The goal of the application is to track the number of times a client computer visits a page using a persistent cookie, display the IP address of the client computer, and determine the time zone of the client computer.</li>
+    </ul>
+    <p>Design:</p>
+    <ul>
+        <li>Backend (Django):
+          <ul>
+            <li>Set up a Django project and create an application within the project.</li>
+            <li>Define a Django view that handles the page the client visits.</li>
+            <li>Retrieve the client's IP address using the request object.</li>
+            <li>Check if a persistent cookie exists on the client's computer to track the number of visits.</li>
+            <li>If the cookie exists, retrieve the visit count; otherwise, set the visit count to 1 and create a new persistent cookie.</li>
+            <li>Update the visit count in the cookie and send it back to the client.</li>
+          </ul>
+        </li>
+        <li>Frontend (JavaScript and Bootstrap):
+          <ul>
+            <li>Use JavaScript to retrieve the client's time zone abbreviation.</li>
+            <li>Format the time zone abbreviation and display it on the page.</li>
+            <li>Style the HTML elements using Bootstrap to enhance the visual appearance.</li>
+          </ul>
+        </li>
+        <li>Templates (HTML):
+          <ul>
+            <li>Create an HTML template that renders the necessary information, including the visit count, IP address, and time zone.</li>
+            <li>Incorporate Bootstrap classes to style the elements and ensure a responsive design.</li>
+          </ul>
+        </li>
+      </ul>
+    <p>By following this analysis and design, you can develop a web application that tracks visits using a persistent cookie, displays the client's IP address, and captures the time zone of the client computer. The Django backend will handle the logic of managing the cookie, while JavaScript and Bootstrap will enhance the frontend experience.</p>
+    <hr>
+    <h3>File structure and details</h3>
+    <ul>
+        <li>
+          <strong>manage.py:</strong> This file is the command-line utility for managing the Django project. It allows you to run development servers, perform database migrations, and execute other administrative tasks.
+        </li>
+        <li>
+          <strong>part1/:</strong> This directory is the Django application package. It contains the main files and configuration for the application.
+          <ul>
+            <li>
+              <strong>__init__.py:</strong> This empty file marks the 'part2' directory as a Python package.
+            </li>
+            <li>
+              <strong>settings.py:</strong> This file contains the configuration settings for the Django project, including database settings, static and media file locations, installed applications, and more.
+            </li>
+            <li>
+              <strong>urls.py:</strong> This file defines the URL routing for the Django project. It maps URL patterns to views in the application.
+            </li>
+            <li>
+              <strong>views.py:</strong> This file contains the views (logic) for the application. It defines functions or classes that handle HTTP requests and return HTTP responses.
+            </li>
+            <li>
+              <strong>templates/:</strong> This directory contains HTML template files used for rendering the views. In this case, the 'part1/' subdirectory contains the 'cookie.html' template file, which represents the main page of the application.
+            </li>
+            <li>
+                <strong>./shared</strong> This file contains the main.css which contains the styling for this page
+            </li>
+          </ul>
+        </li>
+      </ul>
+    <hr>
+    <h3>Guide to run the app:</h3>
+    <ul>
+        <li>
+          <strong>Prerequisites:</strong>
+          <ol>
+            <li>Ensure you have Python installed on your machine. You can download it from the official Python website (<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>) and follow the installation instructions.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Setup:</strong>
+          <ol>
+            <li>Download or clone the project files to your local machine.</li>
+            <li>Open a terminal or command prompt and navigate to the project's directory.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Installation:</strong>
+          <ol>
+            <li>Create a virtual environment by running the command: <code>python -m venv venv</code></li>
+            <li>Activate the virtual environment:
+              <ul>
+                <li>On Windows: <code>venv\Scripts\activate</code></li>
+                <li>On macOS/Linux: <code>source venv/bin/activate</code></li>
+              </ul>
+            </li>
+            <li>Install the required dependencies by running: <code>pip install -r requirements.txt</code></li>
+            <li>Run database migrations by executing: <code>python manage.py migrate</code></li>
+          </ol>
+        </li>
+        <li>
+          <strong>Running the Application:</strong>
+          <ol>
+            <li>Start the Django development server by running the command: <code>python manage.py runserver</code></li>
+            <li>Open a web browser and visit <a href="http://localhost:8000">http://localhost:8000</a> to access the web application.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Using the Application:</strong>
+          <ol>
+            <li>Upon accessing the web application, you will see the "Cookie Tracker" page.</li>
+            <li>The page will display the number of visits, IP address, and time zone of the client computer.</li>
+            <li>Each time you refresh the page, the visit count will increase, and the information will be updated.</li>
+            <li>The time zone will be automatically detected based on the client computer's settings.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Additional Information:</strong>
+          <ul>
+            <li>To stop the development server, press <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal or command prompt where the server is running.</li>
+            <li>Remember to deactivate the virtual environment once you are finished using the application by running the command <code>deactivate</code>.</li>
+          </ul>
+        </li>
+    </ul>
+    <p>That's it! You have now set up, run, and can use the web application. The application will track the number of visits using a persistent cookie, display the client's IP address, and show the time zone of the client computer. Enjoy exploring the functionality of the web application!</p>
+    <hr>
+    <h2 class="text-center">Slideshow (Part 2)</h2>
+    <h3>Description</h3>
+    <p>Following is my description of the assignment project and requirements:</p>
+    <ul>
+        <li>The app requires the development of a slideshow using Django and JavaScript. It needs to display a collection of images along with their descriptions. Users should be able to navigate through the images, control the slideshow's progression, and switch between random and sequential modes. The app should provide an engaging and interactive user experience while showcasing the images and their accompanying information.</li>
+    </ul>
+    <hr>
+    <h3>Analysis and Design</h3>
+    <p>Analysis:</p>
+    <ul>
+        <li>The app is a slideshow that displays images stored in a database along with their descriptions.</li>
+        <li>The slideshow has features like forward and back navigation, random and sequential modes, and start/stop functionality.</li>
+        <li>The app needs to fetch image data from the Django backend and update the slideshow dynamically using JavaScript.</li>
+    </ul>
+    <p>Design:</p>
+        <ul>
+            <li>Frontend:</li>
+            <ul>
+              <li>The frontend will be implemented using HTML, CSS, and JavaScript.</li>
+              <li>The main HTML file, let&apos;s call it &quot;slideshow.html,&quot; will contain the slideshow container, image element, and control buttons.</li>
+              <li>CSS will be used for styling the page, including the layout, colors, and animations.</li>
+              <li>JavaScript will handle the dynamic behavior of the slideshow, such as fetching image data, updating the display, and responding to user interactions.</li>
+            </ul>
+          </ul>
+          
+          <ul>
+            <li>Django Backend:</li>
+            <ul>
+              <li>The backend will be implemented using Django, a Python web framework.</li>
+              <li>The app will have a Django model for storing image details like name, URL, description, and ID.</li>
+              <li>The model will be connected to a database, such as SQLite or PostgreSQL, to persist the image data.</li>
+              <li>Django views and URLs will be set up to handle requests for image data and download endpoints.</li>
+              <li>The backend will provide an API to fetch image metadata and download the image blob.</li>
+            </ul>
+          </ul>
+          
+          <ul>
+            <li>JavaScript Implementation:</li>
+            <ul>
+              <li>JavaScript will be used to fetch image metadata and download the image blob from the Django backend.</li>
+              <li>The JavaScript code will use Fetch API or Axios library to make HTTP requests to the backend API endpoints.</li>
+              <li>The response data will be processed and used to update the slideshow display.</li>
+              <li>Event listeners will be set up to handle user interactions, such as button clicks for navigation and mode switching.</li>
+              <li>JavaScript will handle the slideshow logic, including transitioning between images, starting/stopping the slideshow, and switching between random and sequential modes.</li>
+            </ul>
+          </ul>
+          
+          <ul>
+            <li>Integration:</li>
+            <ul>
+              <li>The Django app will serve the &quot;slideshow.html&quot; file as a template, rendering the dynamic parts using Django&apos;s template engine.</li>
+              <li>The JavaScript code will be included in the HTML file or linked externally using a &lt;script&gt; tag.</li>
+              <li>The Django backend API endpoints will be called from JavaScript to fetch image data.</li>
+            </ul>
+          </ul>
+          
+    <p>By following this analysis and design, you can implement a Django app with a slideshow functionality that fetches image data from the backend and displays it using JavaScript.</p>
+    <hr>
+    <h3>File structure and details</h3>
+    <ul>
+        <li>
+          <strong>manage.py:</strong> This file is the command-line utility for managing the Django project. It allows you to run development servers, perform database migrations, and execute other administrative tasks.
+        </li>
+        <li>
+          <strong>part2/:</strong> This directory is the Django application package. It contains the main files and configuration for the application.
+          <ul>
+            <li>
+              <strong>__init__.py:</strong> This empty file marks the 'part2' directory as a Python package.
+            </li>
+            <li>
+              <strong>settings.py:</strong> This file contains the configuration settings for the Django project, including database settings, static and media file locations, installed applications, and more.
+            </li>
+            <li>
+              <strong>urls.py:</strong> This file defines the URL routing for the Django project. It maps URL patterns to views in the application.
+            </li>
+            <li>
+              <strong>views.py:</strong> This file contains the views (logic) for the application. It defines functions or classes that handle HTTP requests and return HTTP responses.
+            </li>
+            <li>
+              <strong>templates/:</strong> This directory contains HTML template files used for rendering the views. In this case, the 'part2/' subdirectory contains the 'slideshow.html' template file, which represents the main page of the application.
+            </li>
+            <li>
+                <strong>models.py:</strong> This files contains the database setup with all the info on the table and its elements.
+              </li>
+          </ul>
+        </li>
+        <li>
+            <strong>./shared</strong> This file contains the main.css which contains the styling for this page
+        </li>
+      </ul>
+    <hr>
+    <h3>Database Design</h3>
+    <p>The <code>models.py</code> code defines a Django app with a single model called <strong>Image</strong>. This model represents an image stored in the database and has the following fields:</p>
+    <ul>
+    <li><strong>name</strong> (<em>CharField</em>): Stores the name of the image with a maximum length of 500 characters.</li>
+    <li><strong>url</strong> (<em>URLField</em>): Stores the URL of the image with a maximum length of 500 characters.</li>
+    <li><strong>description</strong> (<em>CharField</em>): Stores the description of the image with a maximum length of 500 characters.</li>
+    </ul>
+    <p>The <strong>Image</strong> model also includes a <code>__str__</code> method, which returns a string representation of the image object in the format "name: {name}, url: {url}, description: {description}".</p>
+    <p>This database design allows for the storage of multiple images, each with a unique name, URL, and description.</p>
+    <img src="static/IMG_0689.jpg" width="300" height="300">
+    <hr>
+    <h3>Guide to run the app:</h3>
+    <ul>
+        <li>
+          <strong>Prerequisites:</strong>
+          <ol>
+            <li>Ensure you have Python installed on your machine. You can download it from the official Python website (<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>) and follow the installation instructions.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Setup:</strong>
+          <ol>
+            <li>Download or clone the project files to your local machine.</li>
+            <li>Open a terminal or command prompt and navigate to the project's directory.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Installation:</strong>
+          <ol>
+            <li>Create a virtual environment by running the command: <code>python -m venv venv</code></li>
+            <li>Activate the virtual environment:
+              <ul>
+                <li>On Windows: <code>venv\Scripts\activate</code></li>
+                <li>On macOS/Linux: <code>source venv/bin/activate</code></li>
+              </ul>
+            </li>
+            <li>Install the required dependencies by running: <code>pip install -r requirements.txt</code></li>
+            <li>Run database migrations by executing: <code>python manage.py migrate</code></li>
+          </ol>
+        </li>
+        <li>
+          <strong>Running the Application:</strong>
+          <ol>
+            <li>Start the Django development server by running the command: <code>python manage.py runserver</code></li>
+            <li>Open a web browser and visit <a href="http://localhost:8000">http://localhost:8000</a> to access the web application.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Using the Application:</strong>
+          <ol>
+            <li>Upon accessing the web application, you will see the "Cookie Tracker" page.</li>
+            <li>The page will display the number of visits, IP address, and time zone of the client computer.</li>
+            <li>Each time you refresh the page, the visit count will increase, and the information will be updated.</li>
+            <li>The time zone will be automatically detected based on the client computer's settings.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Additional Information:</strong>
+          <ul>
+            <li>To stop the development server, press <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal or command prompt where the server is running.</li>
+            <li>Remember to deactivate the virtual environment once you are finished using the application by running the command <code>deactivate</code>.</li>
+          </ul>
+        </li>
+    </ul>
+    <p>That's it! You have now set up, run, and can use the web application. The application will track the number of visits using a persistent cookie, display the client's IP address, and show the time zone of the client computer. Enjoy exploring the functionality of the web application!</p>
+    <hr>
+    <h3>Dataflow</h3>
+    <ul>
+        <li>
+          In this dataflow diagram, the user interacts with the slideshow controls on the user interface (HTML page).
+        </li>
+        <li>
+          The JavaScript code running in the browser receives the user's actions and sends HTTP requests to the Django backend API.
+        </li>
+        <li>
+          The Django backend receives the HTTP requests and processes them. It fetches the required image data from the database, which stores the images' information.
+        </li>
+        <li>
+          The backend then generates the appropriate response, which contains the image data or any other necessary information.
+        </li>
+        <li>
+          The response is sent back to the JavaScript code, which receives and processes it. The JavaScript code updates the user interface accordingly, displaying the requested image or performing any other required actions.
+        </li>
+        <li>
+          The dataflow shows the flow of data and interactions between the different components of the slideshow app, including the user interface, JavaScript, Django backend, and the database.
+        </li>
+      </ul>
+    <img src="static/IMG_0690.jpg" width="600" height="300">
+    <hr>
+    <h2 class="text-center">Electic (Part 3)</h2>
+    <h3>Remarks</h3>
+    <ul>
+        <li>I talked to Professor Harris and showed him my medical report approved by the accessibility and he said that I can be accomodated on this assignment. We discussed that I will complete Part 3 and submit as is because I was on a deadline by my home university and my medical condition doesnt allow me to spend extensive amount of time on this. I have already spent a lot of time on this assignment. I am writing my final exam on monday so i had to submit this before that. I did complete some of part 4 stuff in part3 such as implementing a database and fetching all the components and PCs from the database to show that I did know the content.</li>
+    </ul>
+    <h3>Description</h3>
+    <p>Following is my description of the assignment project and requirements:</p>
+    <ul>
+        <li>This app requires us to create a platform like Canada Computers or Apple. Users should be able to view all the different components available to build thier PCs or they can choose from already built PCs. The users have the option to change the components on the builtin PCs and the price should be adjusted accordingly. The website should have a proper logo, welcome page, about section, contact page and feedback form. The users should be able to buy the PCs and we have to show proper order summary and order pages. Proper images should be used to display items.</li>
+    </ul>
+    <hr>
+    <h3>Store Findings</h3>
+    <p>Here are my store findings:</p>
+    <ul>
+        <li>I looked at the Apple and Canada Computers websites. These two websites guided me to create this app. The inspirations I took from canada computers were about how to separately display the components of the computers and the computers separately. The components had a whole different section where we can browse whatever components we like from a specific category. We can look at their pictures and their prices and all the information regarding them. On the other hand, the Apple website guided me on how to create the computer section. When you select a laptop on Apple website, you can literally replace each component with a more upgraded option or you can even downgrade. The price of the laptop changes accordingly. SO combining these two ideas, I will create an app with components listed separately from the computers and once we select a computer, we can customize its components and then buy it. I have attached screenshots of Canada computers and Apple website.</li>
+    </ul>
+    <img src="static/Screen Shot 2023-06-21 at 12.59.14 AM.png" width="600" height="300">
+    <img src="static/Screen Shot 2023-06-21 at 12.59.31 AM.png" width="600" height="300">
+    <img src="static/Screen Shot 2023-06-21 at 2.39.26 AM.png" width="600" height="300">
+    <img src="static/Screen Shot 2023-06-21 at 2.39.43 AM.png" width="600" height="300">
+    <hr>
+    <h3>Interface designs</h3>
+    <img src="static/IMG_0691.jpg" width="600" height="300">
+    <img src="static/IMG_0692.jpg" width="600" height="300">
+    <img src="static/IMG_0693.jpg" width="600" height="300">
+    <img src="static/IMG_0694.jpg" width="600" height="300">
+    <hr>
+    <h3>Analysis and Design</h3>
+    <p><strong>Note: </strong>To make up for part 4, I have already implemented a databse which contains, component information and computer information. All the PC components and computers can be added or editted from the database directly. The database also takes care of the cart items. Items are added to the cart and once the order is processed the items are displayed on the screen.</p>
+    <strong>Analysis:</strong>
+    <ul>
+        <li>Users should be able to browse and view a wide range of computer components available for building their own PCs.</li>
+        <li>Users should have the option to choose from pre-built PCs and customize the components according to their preferences.</li>
+        <li>The website should have a professional logo and a visually appealing design.</li>
+        <li>Users should be able to access information about the company through the About section.</li>
+        <li>A contact page should be available for users to reach out for inquiries or support.</li>
+        <li>A feedback form should be provided to gather user feedback and improve the platform.</li>
+        <li>Users should be able to add components or pre-built PCs to a cart for later purchase.</li>
+        <li>The website should display proper order summaries with the selected components.</li>
+    </ul>
+    <strong>Design:</strong>
+    <ul>
+        <li>Architecture:</li>
+          <ul>
+            <li>The app will follow a client-server architecture.</li>
+            <li>The client-side will be implemented as a web application using HTML, CSS, JavaScript, and Bootstrap for UI components.</li>
+            <li>The server-side will be developed using Django, a Python web framework, to handle routing, data management, and user authentication.</li>
+            <li>The server-side will utilize Django's ORM for interacting with the database.</li>
+            <li>A database management system like SQLite or PostgreSQL will be used to store component data, user information, and order details.</li>
+          </ul>
+            <li>User Interface Design:</li>
+          <ul>
+            <li>The website will have a clean and responsive user interface using Bootstrap components for consistency and responsiveness.</li>
+            <li>The homepage will feature the company logo and a visually appealing layout.</li>
+            <li>Navigation menus will be provided for easy access to different sections of the website.</li>
+            <li>Components and pre-built PCs will be displayed with proper images, names, descriptions, and prices. All of this will be fetched from the database.</li>
+            <li>Users will be able to filter components based on categories, brands, and other relevant criteria.</li>
+            <li>Pre-built PCs will be showcased with detailed specifications and the option to customize components.</li>
+            <li>Users will be able to add components or pre-built PCs to a cart for later purchase.</li>
+            <li>The cart page will display the selected components and provide an order summary.</li>
+          </ul>
+        <li>Backend Development:</li>
+          <ul>
+            <li>The server-side will be developed using Django, a Python web framework.</li>
+            <li>Django's built-in authentication system will be utilized for user registration, login, and user account management.</li>
+            <li>Django models will be created to represent components, pre-built PCs, user carts, and order summaries.</li>
+            <li>Views and URL routing will be implemented to handle requests and render appropriate templates.</li>
+            <li>Data from the database will be retrieved using Django's ORM and passed to the templates for rendering.</li>
+          </ul>
+        <li>Frontend Development:</li>
+          <ul>
+            <li>HTML templates will be created using Django's template engine, integrating with Bootstrap for consistent styling and responsiveness.</li>
+            <li>CSS and JavaScript will be used to enhance the user interface and provide interactive features.</li>
+            <li>Forms will be implemented for user input, such as the feedback form and customization options for pre-built PCs.</li>
+            <li>AJAX or JavaScript will be used to handle dynamic interactions like adding components to the cart without refreshing the page.</li>
+          </ul>
+        <li>Order Management:</li>
+          <ul>
+            <li>An order management system will be implemented on the server-side using Django models.</li>
+            <li>When a user proceeds to checkout, an order summary will be created and stored in the database.</li>
+            <li>Users can view their order summaries on the website.</li>
+            <li>Email notifications can be sent to users with the order details for confirmation.</li>
+          </ul>
+        <li>Testing and Deployment:</li>
+          <ul>
+            <li>Thorough testing will be conducted to ensure the functionality and usability of the platform.</li>
+            <li>Automated testing frameworks like Django's testing tools can be used for unit testing.</li>
+            <li>The app will be deployed on a web server using a suitable hosting service or a self-hosted environment.</li>
+            <li>Deployment considerations will include configuring the web server, setting up the production database, and ensuring proper security measures are in place.</li>
+          </ul>
+    </ul>
+    <p>By following this analysis and design, the Electic Platform will provide users with a user-friendly interface for browsing components, customizing pre-built PCs, and adding items to a cart. The platform will enable users to create order summaries and facilitate efficient order management.</p>
+    <hr>
+    <h3>Database Design</h3>
+<ol>
+  <li>
+    <strong>Component Model:</strong>
+    <ul>
+      <li>The Component model represents a computer component.</li>
+      <li>It has the following fields:</li>
+      <ul>
+        <li><code>name</code> (CharField): The name of the component (max length: 100 characters).</li>
+        <li><code>category</code> (CharField): The category of the component. It uses choices defined in the <code>CATEGORY_CHOICES</code> list.</li>
+        <li><code>price</code> (DecimalField): The price of the component (max digits: 8, decimal places: 2, default: 0.00).</li>
+        <li><code>image_url</code> (URLField): The URL of the component's image (default: a Google image URL).</li>
+      </ul>
+      <li>This model does not have any primary key defined explicitly. Django will automatically create an <code>id</code> field as the primary key.</li>
+      <li>The <code>Component</code> model has a <code>__str__</code> method that returns the name of the component.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Computer Model:</strong>
+    <ul>
+      <li>The Computer model represents a pre-built computer.</li>
+      <li>It has the following fields:</li>
+      <ul>
+        <li><code>name</code> (CharField): The name of the computer (max length: 100 characters).</li>
+        <li><code>components</code> (ManyToManyField): A many-to-many relationship with the <code>Component</code> model. It allows a computer to have multiple components and a component to be used in multiple computers.</li>
+        <li><code>image_url</code> (URLField): The URL of the computer's image (default: a Google image URL).</li>
+      </ul>
+      <li>This model does not have any primary key defined explicitly. Django will automatically create an <code>id</code> field as the primary key.</li>
+      <li>The <code>Computer</code> model has a <code>total_price</code> property that calculates the total price of the computer by summing the prices of its components and adding 200.</li>
+      <li>The <code>Computer</code> model also has a <code>__str__</code> method that returns the name of the computer.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>CartItem Model:</strong>
+    <ul>
+      <li>The CartItem model represents an item in the user's cart.</li>
+      <li>It has the following fields:</li>
+      <ul>
+        <li><code>computer</code> (ForeignKey): A foreign key relationship with the <code>Computer</code> model. It specifies that a cart item is associated with a specific computer.</li>
+        <li><code>user</code> (ForeignKey): A foreign key relationship with the Django's built-in <code>User</code> model. It specifies that a cart item is associated with a specific user.</li>
+        <li><code>created_at</code> (DateTimeField): The date and time when the cart item was created (auto-generated when the cart item is created).</li>
+      </ul>
+      <li>This model does not have any primary key defined explicitly. Django will automatically
+
+ create an <code>id</code> field as the primary key.</li>
+      <li>The <code>CartItem</code> model has a <code>__str__</code> method that returns a string representation of the cart item containing the username of the user and the name of the computer.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Overall, these models define the structure of the database tables needed for the computer component e-commerce platform. The <code>Component</code> and <code>Computer</code> models represent the components and pre-built computers, respectively, while the <code>CartItem</code> model represents the items in the user's cart. The relationships between the models are established using foreign keys and many-to-many relationships.</p>
+    <img src="static/Screen Shot 2023-06-24 at 6.06.58 PM.png" width="600" height="400">    
+    <hr>
+    <h3>Guide to run the app</h3>
+    <ul>
+        <li>
+          <strong>Prerequisites:</strong>
+          <ol>
+            <li>Ensure you have Python installed on your machine. You can download it from the official Python website (<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>) and follow the installation instructions.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Setup:</strong>
+          <ol>
+            <li>Download or clone the project files to your local machine.</li>
+            <li>Open a terminal or command prompt and navigate to the project's directory.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Installation:</strong>
+          <ol>
+            <li>Create a virtual environment by running the command: <code>python -m venv venv</code></li>
+            <li>Activate the virtual environment:
+              <ul>
+                <li>On Windows: <code>venv\Scripts\activate</code></li>
+                <li>On macOS/Linux: <code>source venv/bin/activate</code></li>
+              </ul>
+            </li>
+            <li>Install the required dependencies by running: <code>pip install -r requirements.txt</code></li>
+            <li>Run database migrations by executing: <code>python manage.py migrate</code></li>
+          </ol>
+        </li>
+        <li>
+          <strong>Running the Application:</strong>
+          <ol>
+            <li>Start the Django development server by running the command: <code>python manage.py runserver</code></li>
+            <li>Open a web browser and visit <a href="http://localhost:8000">http://localhost:8000</a> to access the web application.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Using the Application:</strong>
+          <ol>
+            <li>Upon accessing the web application, you will see the "Cookie Tracker" page.</li>
+            <li>The page will display the number of visits, IP address, and time zone of the client computer.</li>
+            <li>Each time you refresh the page, the visit count will increase, and the information will be updated.</li>
+            <li>The time zone will be automatically detected based on the client computer's settings.</li>
+          </ol>
+        </li>
+        <li>
+          <strong>Additional Information:</strong>
+          <ul>
+            <li>To stop the development server, press <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal or command prompt where the server is running.</li>
+            <li>Remember to deactivate the virtual environment once you are finished using the application by running the command <code>deactivate</code>.</li>
+          </ul>
+        </li>
+    </ul>
+    <p>That's it! You have now set up, run, and can use the web application. The application will track the number of visits using a persistent cookie, display the client's IP address, and show the time zone of the client computer. Enjoy exploring the functionality of the web application!</p>
+    <hr>
+    <h3>Dataflow</h3>
+    <ul>
+        <li>
+            Right now I dont have the User registration feature implemented as mentioned earlier that I will not be doing Part 4 after discussing with Professor Harris. The Dataflow right now would be like this:
+        </li>
+        <img src="static/IMG_7566.jpg" width="600" height="400"> 
+      </ul>
+    <hr>
+    <h3>SQL Statements</h3>
+    <ul>
+        <li>
+            The proper way to add data to this database would be using django commands but the Sql Statements for the Computer, Component model are as follows:
+        </li>
+        <img src="static/Screen Shot 2023-06-24 at 10.50.18 PM.png" width="600" height="450"> 
+      </ul>
+    <hr>
+    <h3>Django Commands</h3>
+    <ul>
+        <li>Import the necessary models and any other dependencies:</li>
+        <ul>
+          <li>from myapp.models import Component, Computer</li>
+        </ul>
+        <li>Create a new instance of the model with the desired data:</li>
+        <ul>
+          <li>Create a new Component instance</li>
+          <ul>
+            <li>component1 = Component(name='Hard Drive', category='HDD', price=100.00, image_url='https://example.com/hdd_image.jpg')</li>
+            <li>component2 = Component(name='Memory', category='RAM', price=50.00, image_url='https://example.com/ram_image.jpg')</li>
+          </ul>
+          <li>Create a new Computer instance</li>
+          <ul>
+            <li>computer = Computer(name='Gaming PC', image_url='https://example.com/gaming_pc_image.jpg')</li>
+          </ul>
+        </ul>
+        <li>Save the instances to the database using the save() method:</li>
+        <ul>
+          <li>Save the Component instances</li>
+          <ul>
+            <li>component1.save()</li>
+            <li>component2.save()</li>
+          </ul>
+          <li>Save the Computer instance</li>
+          <ul>
+            <li>computer.save()</li>
+          </ul>
+        </ul>
+        <li>If you have a many-to-many relationship between models, you can add related objects using the related field:</li>
+        <ul>
+          <li>Assuming component1 and component2 are already saved in the database</li>
+          <ul>
+            <li>computer.components.add(component1, component2)</li>
+          </ul>
+        </ul>
+        <li>Optionally, you can access and modify related objects through the reverse relationship:</li>
+        <ul>
+          <li>Assuming a computer instance with ID 1</li>
+          <ul>
+            <li>components = computer.component_set.all()  # Retrieve all components associated with the computer</li>
+            <li>Modify the related objects</li>
+            <ul>
+              <li>for component in components:</li>
+              <ul>
+                <li>component.price += 10  # Increase the price of each component by 10</li>
+                <li>component.save()</li>
+              </ul>
+            </ul>
+          </ul>
+        </ul>
+      </ul>
+      <hr>
+      <h3>File structure and details</h3>
+    <ul>
+        <li>
+          <strong>manage.py:</strong> This file is the command-line utility for managing the Django project. It allows you to run development servers, perform database migrations, and execute other administrative tasks.
+        </li>
+        <li>
+          <strong>part3/:</strong> This directory is the Django application package. It contains the main files and configuration for the application.
+          <ul>
+            <li>
+              <strong>__init__.py:</strong> This empty file marks the 'part2' directory as a Python package.
+            </li>
+            <li>
+              <strong>settings.py:</strong> This file contains the configuration settings for the Django project, including database settings, static and media file locations, installed applications, and more.
+            </li>
+            <li>
+              <strong>urls.py:</strong> This file defines the URL routing for the Django project. It maps URL patterns to views in the application.
+            </li>
+            <li>
+              <strong>views.py:</strong> This file contains the views (logic) for the application. It defines functions or classes that handle HTTP requests and return HTTP responses.
+            </li>
+            <li>
+              <strong>templates/:</strong> This directory contains HTML template files used for rendering the views. In this case, the 'part2/' subdirectory contains the 'slideshow.html' template file, which represents the main page of the application.
+            </li>
+            <li>
+                <strong>models.py:</strong> This files contains the database setup with all the info on the table and its elements.
+              </li>
+          </ul>
+        </li>
+        <li>
+            <strong>./shared</strong> This file contains the main.css which contains the styling for this page
+        </li>
+      </ul>
+    <hr>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
